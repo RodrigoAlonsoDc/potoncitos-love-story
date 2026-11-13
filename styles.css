@@ -1,0 +1,945 @@
+/* ==========================================================================
+   VARIABLES & RESET — ESTILO SCRAPBOOK / DIARIO EDITORIAL
+   ========================================================================== */
+:root {
+  --bg-outer-dark: #2c2c2c;
+  --bg-paper: #f6f4ee;
+  --text-ink: #23211f;
+  --text-soft: #4a4642;
+  --line-muted: #8c867e;
+
+  /* Paleta pastel de palabras manuscritas */
+  --pastel-blue: #9cbcd8;
+  --pastel-peach: #ecc6a2;
+  --pastel-olive: #959688;
+  --pastel-pink: #e59fa1;
+  --pastel-mauve: #c9adc7;
+  --pastel-lavender: #b8a4d4;
+  --pastel-ocean: #9db6d4;
+  --pastel-green: #c5d7b5;
+
+  /* Fuentes */
+  --font-script-title: 'Sacramento', cursive;
+  --font-script-elegance: 'Alex Brush', cursive;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-hand: 'Caveat', cursive;
+  --font-print-hand: 'Patrick Hand', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-outer-dark);
+  color: var(--text-ink);
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+}
+
+/* Lienzo vertical color crema (se escala automáticamente al ~87.5% de la pantalla en PC) */
+.scrapbook-canvas {
+  width: 820px;
+  max-width: 100%;
+  background-color: var(--bg-paper);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   CABECERA SUPERIOR (CRÉDITOS DE ESQUINA)
+   ========================================================================== */
+.top-credits {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 5% 8px;
+}
+
+.credit-item {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.credit-right {
+  text-align: right;
+}
+
+.credit-name {
+  font-family: var(--font-serif);
+  font-size: 0.76rem;
+  color: var(--text-soft);
+  letter-spacing: 0.03em;
+}
+
+.credit-sub {
+  font-family: var(--font-script-elegance);
+  font-size: 0.94rem;
+  color: var(--text-soft);
+}
+
+/* ==========================================================================
+   SECCIÓN 1: HERO / TÍTULO "Potoncitos" + DOODLES + CAPIBARAS
+   ========================================================================== */
+.hero-scrapbook {
+  position: relative;
+  padding: 12px 6% 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Doodle Estrellas arriba a la izquierda */
+.doodle-stars {
+  position: absolute;
+  top: 2px;
+  left: 14%;
+  width: 118px;
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+
+.doodle-stars svg,
+.doodle-locket svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Doodle Relicario de corazón a la derecha */
+.doodle-locket {
+  position: absolute;
+  top: 76px;
+  right: 10%;
+  width: 138px;
+  transform: rotate(4deg);
+  pointer-events: none;
+}
+
+/* Bloque central del título */
+.title-center-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 22px;
+  z-index: 2;
+}
+
+.title-prefix {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  align-self: flex-start;
+  margin-left: -18px;
+  margin-bottom: -14px;
+  color: var(--text-ink);
+}
+
+.title-main {
+  font-family: var(--font-script-title);
+  font-size: 3.8rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text-ink);
+  letter-spacing: 0.01em;
+}
+
+.title-suffix {
+  font-family: var(--font-serif);
+  font-size: 0.96rem;
+  align-self: flex-end;
+  margin-right: -24px;
+  margin-top: -10px;
+  letter-spacing: 0.04em;
+}
+
+/* Cita en francés con líneas horizontales */
+.french-quote-box {
+  margin-top: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tiny-script {
+  font-family: var(--font-script-elegance);
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  margin-bottom: 4px;
+}
+
+.french-quote {
+  font-family: var(--font-script-elegance);
+  font-size: 0.92rem;
+  line-height: 1.25;
+  color: var(--text-soft);
+  padding: 6px 14px;
+  border-top: 1px solid rgba(140, 134, 126, 0.4);
+  border-bottom: 1px solid rgba(140, 134, 126, 0.4);
+}
+
+/* Fila de Capibaras + "our love journey" */
+.chibi-row {
+  margin-top: 18px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.chibi-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chibi-excl {
+  font-family: var(--font-print-hand);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+  animation: pulseExcl 2.4s ease-in-out infinite;
+}
+
+.chibi-art {
+  width: 140px;
+  animation: capyBreathe 3.6s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.img-capibaras {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chibi-art:hover .img-capibaras {
+  transform: scale(1.1) translateY(-3px);
+}
+
+.journey-label {
+  position: absolute;
+  right: 26%;
+  bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-print-hand);
+  font-size: 0.74rem;
+  line-height: 1.15;
+  color: var(--text-soft);
+}
+
+/* ==========================================================================
+   COMPONENTES DEL SCRAPBOOK (MARCOS DE FOTOS, POLAROIDS Y TEXTOS PASTEL)
+   ========================================================================== */
+/* Marco dibujado a mano con doble línea y puntitos en las esquinas */
+.sketch-frame {
+  position: relative;
+  padding: 6px;
+  border: 1.6px solid var(--text-ink);
+  background-color: var(--bg-paper);
+  box-shadow: 2px 4px 10px rgba(35, 33, 31, 0.1);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sketch-frame:hover {
+  transform: translateY(-5px) rotate(-0.8deg);
+  box-shadow: 6px 14px 26px rgba(35, 33, 31, 0.2);
+}
+
+/* Segundo trazo ligeramente desfasado para simular dibujo a mano */
+.sketch-frame::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1.1px solid rgba(35, 33, 31, 0.7);
+  transform: rotate(-0.7deg);
+  pointer-events: none;
+  transition: transform 0.45s ease;
+}
+
+.sketch-frame:hover::before {
+  transform: rotate(1deg) scale(1.01);
+}
+
+/* Puntos decorativos en las esquinas del marco */
+.sketch-frame::after {
+  content: "•  •";
+  position: absolute;
+  bottom: -14px;
+  right: 4px;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--text-ink);
+  pointer-events: none;
+}
+
+/* Contenedor de las fotos principales dentro de los marcos */
+.main-photo-box {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background-color: #e9e5dc;
+  position: relative;
+  cursor: zoom-in;
+}
+
+/* Efecto de destello cálido (shimmer) al pasar el mouse por cualquier foto */
+.anim-photo {
+  position: relative;
+  cursor: zoom-in;
+}
+
+.anim-photo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -110%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.42) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  z-index: 2;
+  pointer-events: none;
+  transition: left 0.75s ease;
+}
+
+.anim-photo:hover::before {
+  left: 135%;
+}
+
+/* Pequeño corazón flotante que aparece en la esquina al pasar el mouse */
+.anim-photo::after {
+  content: "♥";
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 0.95rem;
+  color: #fff;
+  background: rgba(229, 159, 161, 0.88);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px) scale(0.6);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 3;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.anim-photo:hover::after {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.main-photo-box img,
+.polaroid-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.02) saturate(0.96) sepia(0.06);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.4s ease;
+}
+
+.main-photo-box:hover img,
+.polaroid-mini:hover img {
+  transform: scale(1.08);
+  filter: contrast(1.05) saturate(1.05) sepia(0);
+}
+
+/* Ajustes de encuadre específicos para cada una de tus 5 fotos */
+.img-banca {
+  object-position: center 32%;
+}
+
+.img-capucha {
+  object-position: center 35%;
+}
+
+.img-casaca-verde {
+  object-position: center 26%;
+}
+
+.img-beso {
+  object-position: center 38%;
+}
+
+.img-manos {
+  object-position: center 58%;
+}
+
+/* Mini fotos superpuestas estilo recorte/polaroid con balanceo suave */
+.polaroid-mini {
+  width: 118px;
+  aspect-ratio: 1.18 / 1;
+  background-color: #ffffff;
+  padding: 3.5px;
+  border: 1px solid rgba(35, 33, 31, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+
+.photo-tilt-left {
+  animation: swayLeft 4.8s ease-in-out infinite;
+}
+
+.photo-tilt-right {
+  animation: swayRight 5.2s ease-in-out infinite;
+}
+
+.polaroid-mini:hover {
+  animation-play-state: paused;
+  transform: scale(1.12) rotate(0deg) translateY(-4px) !important;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  z-index: 10;
+}
+
+.duck-card svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Palabras manuscritas en tonos pastel */
+.pastel-word {
+  font-family: var(--font-print-hand);
+  font-size: 1.85rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  display: inline-block;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.pastel-word:hover {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.color-blue { color: var(--pastel-blue); transform: rotate(2deg); }
+.color-peach { color: var(--pastel-peach); transform: rotate(4deg); }
+.color-olive { color: var(--pastel-olive); }
+.color-pink { color: var(--pastel-pink); }
+.color-mauve { color: var(--pastel-mauve); }
+.color-lavender { color: var(--pastel-lavender); }
+.color-ocean { color: var(--pastel-ocean); }
+.color-green { color: var(--pastel-green); transform: rotate(-4deg); }
+
+/* Pequeñas notas manuscritas ("monsieur!", "pato!", "coffe shop") */
+.hand-note {
+  font-family: var(--font-hand);
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  display: inline-block;
+}
+
+/* Textos del diario */
+.diary-heading {
+  font-family: var(--font-script-title);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text-ink);
+}
+
+.diary-paragraph {
+  font-family: var(--font-hand);
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--text-ink);
+}
+
+.sticker-badge,
+.sticker-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* ==========================================================================
+   SECCIÓN 2: FILAS ZIG-ZAG DE LA HISTORIA
+   ========================================================================== */
+.story-zigzag {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  padding: 10px 7% 28px;
+}
+
+.story-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 34px;
+}
+
+/* ------------------------------------------
+   FILA 1
+   ------------------------------------------ */
+.collage-left {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.note-monsieur {
+  transform: rotate(-8deg);
+  margin-left: 8px;
+  margin-bottom: 4px;
+}
+
+.top-attachment-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: -12px;
+  z-index: 3;
+  padding-left: 6px;
+}
+
+.sticker-left {
+  position: absolute;
+  left: -26px;
+  top: 20%;
+  z-index: 4;
+}
+
+/* Columna derecha Fila 1 */
+.diary-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.diary-body-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.side-accent-rings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.word-cigarettes {
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+/* ------------------------------------------
+   FILA 2
+   ------------------------------------------ */
+.diary-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.diary-header-inline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 4%;
+}
+
+.diary-question {
+  font-family: var(--font-hand);
+  font-size: 0.94rem;
+  text-align: center;
+  color: var(--text-ink);
+  margin-top: 2px;
+}
+
+.diary-footer-accents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 10% 0;
+}
+
+/* Columna derecha Fila 2 */
+.collage-right {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.duck-overlay-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: -14px;
+  padding-right: 4px;
+  z-index: 3;
+}
+
+.note-pato {
+  margin-bottom: -18px;
+}
+
+/* ------------------------------------------
+   FILA 3
+   ------------------------------------------ */
+.bottom-attachment-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: -14px;
+  padding: 0 4px;
+  z-index: 3;
+}
+
+.coffee-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.word-greenfields {
+  margin-bottom: 10px;
+}
+
+/* Cierre "once upon a time WE FELL IN LOVE" */
+.once-upon-block {
+  margin-top: 14px;
+  align-self: flex-end;
+  margin-right: 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.05;
+}
+
+.once-script {
+  font-family: var(--font-script-title);
+  font-size: 1.32rem;
+}
+
+.fell-small {
+  font-family: var(--font-print-hand);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+}
+
+.fell-love {
+  font-family: var(--font-print-hand);
+  font-size: 1.32rem;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   SECCIÓN 3: IMAGEN INFERIOR (PERRITO ABEJITA)
+   ========================================================================== */
+.bottom-manga-hero {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 7% 0;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-feature-photo {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  border: 1.5px solid var(--text-ink);
+  border-bottom: none;
+  background-color: #e4e5e3;
+  box-shadow: 0 -4px 20px rgba(35, 33, 31, 0.08);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.45s ease;
+}
+
+.bottom-feature-photo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 -10px 28px rgba(35, 33, 31, 0.18);
+}
+
+.img-perrito-abeja {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bottom-feature-photo:hover .img-perrito-abeja {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   KEYFRAMES & ANIMACIONES (SCROLL REVEAL + FLOTACIÓN + LIGHTBOX)
+   ========================================================================== */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-6px) rotate(-3deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0) rotate(4deg); }
+  50% { transform: translateY(-5px) rotate(7deg); }
+}
+
+@keyframes swayLeft {
+  0%, 100% { transform: rotate(-3.5deg) translateY(0); }
+  50% { transform: rotate(-1.2deg) translateY(-3px); }
+}
+
+@keyframes swayRight {
+  0%, 100% { transform: rotate(2.5deg) translateY(0); }
+  50% { transform: rotate(-0.8deg) translateY(-3px); }
+}
+
+@keyframes capyBreathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-3px) scale(1.025); }
+}
+
+@keyframes pulseExcl {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+.float-slow {
+  animation: floatSlow 4.5s ease-in-out infinite;
+}
+
+.float-reverse {
+  animation: floatReverse 5s ease-in-out infinite;
+}
+
+/* Clases de entrada al hacer scroll (IntersectionObserver) */
+.reveal-fade,
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade {
+  transform: translateY(-10px);
+}
+
+.reveal-up {
+  transform: translateY(28px);
+}
+
+.reveal-left {
+  transform: translateX(-36px) translateY(18px) rotate(-1.5deg);
+}
+
+.reveal-right {
+  transform: translateX(36px) translateY(18px) rotate(1.5deg);
+}
+
+.reveal-fade.is-visible,
+.reveal-up.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0) rotate(0deg);
+}
+
+/* Modal Lightbox para ver las fotos ampliadas al hacer clic */
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(25, 23, 21, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.photo-lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-card {
+  background: var(--bg-paper);
+  padding: 12px 12px 18px;
+  border: 2px solid var(--text-ink);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-width: min(90vw, 680px);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.88) rotate(-2deg);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.photo-lightbox.active .lightbox-card {
+  transform: scale(1) rotate(0deg);
+}
+
+.lightbox-card img {
+  max-width: 100%;
+  max-height: 74vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-card figcaption {
+  margin-top: 12px;
+  font-family: var(--font-hand);
+  font-size: 1.45rem;
+  color: var(--text-ink);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: var(--bg-paper);
+  color: var(--text-ink);
+  border: 1.5px solid var(--text-ink);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLETS Y MÓVILES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .scrapbook-canvas {
+    width: 100%;
+  }
+
+  .doodle-stars {
+    left: 5%;
+    width: 80px;
+  }
+
+  .doodle-locket {
+    right: 4%;
+    top: 74px;
+    width: 92px;
+  }
+
+  .journey-label {
+    right: 14%;
+  }
+
+  .story-row {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 24px;
+  }
+
+  .row-2 .collage-right {
+    order: -1;
+  }
+
+  .once-upon-block {
+    align-self: center;
+    margin-right: 0;
+  }
+
+  .sticker-left {
+    left: -14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-credits {
+    padding: 14px 4% 6px;
+  }
+
+  .hero-scrapbook {
+    padding: 10px 4% 24px;
+  }
+
+  .doodle-stars {
+    position: static;
+    align-self: flex-start;
+    margin-left: 4%;
+    margin-bottom: -18px;
+  }
+
+  .doodle-locket {
+    position: static;
+    align-self: flex-end;
+    margin-right: 4%;
+    margin-top: 8px;
+  }
+
+  .journey-label {
+    position: static;
+    margin-left: 16px;
+  }
+
+  .story-zigzag {
+    padding: 10px 5% 24px;
+  }
+
+  .diary-body-wrap {
+    flex-direction: column;
+  }
+
+  .side-accent-rings {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
